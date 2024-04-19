@@ -35,21 +35,8 @@ def key_pressed(event):
     if key.isdigit():
         update_amount(key)
 
-def add(num1, num2):
-    result = num1 + num2
-    return result
-
-def subtract(num1, num2):
-    result = num1 - num2
-    return result
-
-def multiply(num1, num2):
-    result = num1*num2
-    return result
-
-def divide(num1, num2):
-    result = num1 / num2
-    return result
+def enter_button(event):
+    enter = event.char
 
 balance_label = tk.Label(window, text="1000", font=("Arial", 16))
 balance_label.pack()
@@ -92,5 +79,6 @@ def dark_mode():
 
 window.bind("<Key>", key_pressed)
 
+window.bind("<Enter>", enter_button)
 
 window.mainloop()
