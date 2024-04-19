@@ -38,6 +38,22 @@ def key_pressed(event):
 def enter_button(event):
     enter = event.char
 
+def add(num1, num2):
+    result = num1 + num2
+    return result
+
+def subtract(num1, num2):
+    result = num1 - num2
+    return result
+
+def multiply(num1, num2):
+    result = num1*num2
+    return result
+
+def divide(num1, num2):
+    result = num1 / num2
+    return result
+
 balance_label = tk.Label(window, text="1000", font=("Arial", 16))
 balance_label.pack()
 
