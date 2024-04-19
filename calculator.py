@@ -9,11 +9,6 @@ window.minsize(300,400)
 math_text = tk.Label(master = window, text = "")
 math_text.pack()
 
-button_frame = tk.Frame()
-button_frame.pack()
-button_frame.rowconfigure([0,1,2,3], minsize = 50)
-button_frame.columnconfigure([0,1,2], minsize = 50)
-
 def update_amount(number):
     current_amount = amount_label.cget("text")
     if current_amount == "0":
@@ -45,6 +40,11 @@ balance_label.pack()
 
 amount_label = tk.Label(window, text="", font=("Arial", 14))
 amount_label.pack()
+
+button_frame = tk.Frame()
+button_frame.pack()
+button_frame.rowconfigure([0,1,2,3], minsize = 50)
+button_frame.columnconfigure([0,1,2], minsize = 50)
 
 for i in range(10):
     button = tk.Button(button_frame, text=str(i), width=5, height=2, command=lambda i=i: update_amount(str(i)))
