@@ -35,6 +35,22 @@ def key_pressed(event):
     if key.isdigit():
         update_amount(key)
 
+def add(num1, num2):
+    result = num1 + num2
+    return result
+
+def subtract(num1, num2):
+    result = num1 - num2
+    return result
+
+def multiply(num1, num2):
+    result = num1*num2
+    return result
+
+def divide(num1, num2):
+    result = num1 / num2
+    return result
+
 balance_label = tk.Label(window, text="1000", font=("Arial", 16))
 balance_label.pack()
 
@@ -44,7 +60,7 @@ amount_label.pack()
 button_frame = tk.Frame()
 button_frame.pack()
 button_frame.rowconfigure([0,1,2,3], minsize = 60)
-button_frame.columnconfigure([0,1,2], minsize = 60)
+button_frame.columnconfigure([0,1,2,3], minsize = 60)
 
 for i in range(10):
     button = tk.Button(button_frame, text=str(i), width=5, height=2, command=lambda i=i: update_amount(str(i)))
@@ -55,6 +71,24 @@ enter_button.grid(row=3, column=1, sticky = "nsew")
 
 clear_button = tk.Button(button_frame, text="Clear", width=5, height=2, command=clear_history)
 clear_button.grid(row=3, column=2, sticky = "nsew")
+
+add_button = tk.Button(button_frame, text = "+", width = 5, height = 2, command = add)
+add_button.grid(row = 0, column = 3, sticky = "nsew")
+
+subtract_button = tk.Button(button_frame, text = "-", width = 5, height = 2, command = subtract)
+subtract_button.grid(row = 1, column = 3, sticky = "nsew")
+
+multiply_button = tk.Button(button_frame, text = "x", width = 5, height = 2, command = multiply)
+multiply_button.grid(row = 2, column = 3, sticky = "nsew")
+
+divide_button = tk.Button(button_frame, text = "÷", width = 5, height = 2, command = divide)
+divide_button.grid(row = 3, column = 3, sticky = "nsew")
+
+def light_mode():
+    return 
+
+def dark_mode():
+    return 
 
 window.bind("<Key>", key_pressed)
 

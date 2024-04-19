@@ -9,5 +9,5 @@ Features:
     -maybe run by a for loop, all the operations could be kept within a list and then run through and printed (could also be a class object that has two attributes which are the operation and then the associated value)
     -has a clear button to clear history
 -color theme
-    -create a couple color themes (maybe just dark and light mode) so that the user can choose which theme (like pressing a button which pops up the options and then choosing one) (couls use classes here potentially as well)
+    -create a couple color themes (maybe just dark and light mode) so that the user can choose which theme (like pressing a button which pops up the options and then choosing one) (could use classes here potentially as well)
 -it also could include an image in the corner as something we have not learned
