@@ -37,6 +37,8 @@ def key_pressed(event):
 
 def enter_button(event):
     enter = event.char
+    if enter.onclick():
+        update_amount(enter)
 
 balance_label = tk.Label(window, text="1000", font=("Arial", 16))
 balance_label.pack()
@@ -53,11 +55,11 @@ for i in range(10):
     button = tk.Button(button_frame, text=str(i), width=5, height=2, command=lambda i=i: update_amount(str(i)))
     button.grid(row=i//3, column=i%3, sticky = "nsew")
 
-enter_button = tk.Button(button_frame, text="Enter", width=5, height=2, command=enter_amount)
-enter_button.grid(row=3, column=1, sticky = "nsew")
+enter = tk.Button(button_frame, text="Enter", width=5, height=2, command=enter_amount)
+enter.grid(row=3, column=1, sticky = "nsew")
 
-clear_button = tk.Button(button_frame, text="Clear", width=5, height=2, command=clear_history)
-clear_button.grid(row=3, column=2, sticky = "nsew")
+clear = tk.Button(button_frame, text="Clear", width=5, height=2, command=clear_history)
+clear.grid(row=3, column=2, sticky = "nsew")
 
 window.bind("<Key>", key_pressed)
 
