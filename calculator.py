@@ -35,6 +35,9 @@ def key_pressed(event):
     if key.isdigit():
         update_amount(key)
 
+def enter_button(event):
+    enter = event.char
+
 balance_label = tk.Label(window, text="1000", font=("Arial", 16))
 balance_label.pack()
 
@@ -58,5 +61,6 @@ clear_button.grid(row=4, column=1)
 
 window.bind("<Key>", key_pressed)
 
+window.bind("<Enter>", enter_button)
 
 window.mainloop()
