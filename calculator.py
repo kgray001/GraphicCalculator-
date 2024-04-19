@@ -20,14 +20,14 @@ def update_amount(number):
     else:
         amount_label.config(text=current_amount + number)
 
-def withdraw_funds():
+def clear_history():
     current_balance = float(balance_label.cget("text"))
     withdrawal_amount = float(amount_label.cget("text"))
     new_balance = current_balance - withdrawal_amount
     balance_label.config(text=new_balance)
     amount_label.config(text="")
 
-def deposit_funds():
+def enter_amount():
     current_balance = float(balance_label.cget("text"))
     deposit_amount = float(amount_label.cget("text"))
     new_balance = current_balance + deposit_amount
@@ -55,11 +55,11 @@ for i in range(10):
     button = tk.Button(button_frame, text=str(i), width=5, height=2, command=lambda i=i: update_amount(str(i)))
     button.grid(row=i//3, column=i%3)
 
-withdraw_button = tk.Button(button_frame, text="Withdraw", width=10, height=2, command=withdraw_funds)
-withdraw_button.grid(row=4, column=0)
+enter_button = tk.Button(button_frame, text="Enter", width=10, height=2, command=enter_amount)
+enter_button.grid(row=4, column=0)
 
-deposit_button = tk.Button(button_frame, text="Deposit", width=10, height=2, command=deposit_funds)
-deposit_button.grid(row=4, column=1)
+clear_button = tk.Button(button_frame, text="Clear", width=10, height=2, command=clear_history)
+clear_button.grid(row=4, column=1)
 
 root.bind("<Key>", key_pressed)
 
