@@ -39,6 +39,12 @@ def enter_button(event):
     enter = event.char
     if enter.onclick():
         update_amount(enter)
+    
+def clear_button(event):
+    clear = event.char
+    if clear.onclick():
+        update_amount(clear)
+    
 
 def add(num1, num2):
     result = num1 + num2
@@ -97,6 +103,6 @@ def dark_mode():
 
 window.bind("<Key>", key_pressed)
 
-window.bind("<Enter>", enter_button)
+window.bind("<Return>", enter_button)
 
 window.mainloop()
