@@ -43,18 +43,18 @@ amount_label.pack()
 
 button_frame = tk.Frame()
 button_frame.pack()
-button_frame.rowconfigure([0,1,2,3], minsize = 50)
-button_frame.columnconfigure([0,1,2], minsize = 50)
+button_frame.rowconfigure([0,1,2,3], minsize = 60)
+button_frame.columnconfigure([0,1,2], minsize = 60)
 
 for i in range(10):
     button = tk.Button(button_frame, text=str(i), width=5, height=2, command=lambda i=i: update_amount(str(i)))
     button.grid(row=i//3, column=i%3, sticky = "nsew")
 
-enter_button = tk.Button(button_frame, text="Enter", width=10, height=2, command=enter_amount)
-enter_button.grid(row=4, column=0)
+enter_button = tk.Button(button_frame, text="Enter", width=5, height=2, command=enter_amount)
+enter_button.grid(row=3, column=1, sticky = "nsew")
 
-clear_button = tk.Button(button_frame, text="Clear", width=10, height=2, command=clear_history)
-clear_button.grid(row=4, column=1)
+clear_button = tk.Button(button_frame, text="Clear", width=5, height=2, command=clear_history)
+clear_button.grid(row=3, column=2, sticky = "nsew")
 
 window.bind("<Key>", key_pressed)
 
