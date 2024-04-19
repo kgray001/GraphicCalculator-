@@ -39,16 +39,13 @@ def key_pressed(event):
     if key.isdigit():
         update_amount(key)
 
-root = tk.Tk()
-root.title("ATM")
-
-balance_label = tk.Label(root, text="1000", font=("Arial", 16))
+balance_label = tk.Label(window, text="1000", font=("Arial", 16))
 balance_label.pack()
 
-amount_label = tk.Label(root, text="", font=("Arial", 14))
+amount_label = tk.Label(window, text="", font=("Arial", 14))
 amount_label.pack()
 
-button_frame = tk.Frame(root)
+button_frame = tk.Frame(window)
 button_frame.pack()
 
 for i in range(10):
