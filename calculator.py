@@ -6,7 +6,7 @@ window.title("Calculator")
 
 window.minsize(300,400)
 
-math_text = tk.Label(master = window, text = "")
+math_text = tk.Label(master = window, text = "", height = 5, width = 10)
 math_text.pack()
 
 def update_amount(number):
