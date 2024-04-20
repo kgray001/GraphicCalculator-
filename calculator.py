@@ -6,7 +6,7 @@ window.title("Calculator")
 
 window.minsize(300,400)
 
-math_text = tk.Label(master = window, text = "", height = 5, width = 10)
+math_text = tk.Label(master = window, text = "", height = 5, width = 33)
 math_text.pack()
 
 def update_amount(number):
@@ -93,10 +93,14 @@ divide_button = tk.Button(button_frame, text = "÷", width = 5, height = 2, comm
 divide_button.grid(row = 3, column = 3, sticky = "nsew")
 
 def light_mode():
-    return 
+    window.configure(background = "white")
+    math_text["bg"] = "white"
+    math_text["fg"] = "black"
 
 def dark_mode():
-    return 
+    window.configure(background = "black")
+    math_text["bg"] = "black"
+    math_text["fg"] = "white"
 
 window.bind("<Key>", key_pressed)
 
