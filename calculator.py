@@ -10,25 +10,25 @@ math_text = tk.Label(master = window, text = "")
 math_text.pack()
 
 def update_amount(number):
-    current_amount = amount_label.cget("text")
+    current_amount = math_text.cget("text")
     if current_amount == "0":
-        amount_label.config(text=number)
+        math_text.config(text=number)
     else:
-        amount_label.config(text=current_amount + number)
+        math_text.config(text=current_amount + number)
 
 def clear_history():
-    current_balance = float(balance_label.cget("text"))
-    withdrawal_amount = float(amount_label.cget("text"))
+    current_balance = float(math_text.cget("text"))
+    withdrawal_amount = float(math_text.cget("text"))
     new_balance = current_balance - withdrawal_amount
-    balance_label.config(text=new_balance)
-    amount_label.config(text="")
+    math_text.config(text=new_balance)
+    math_text.config(text="")
 
 def enter_amount():
-    current_balance = float(balance_label.cget("text"))
-    deposit_amount = float(amount_label.cget("text"))
+    current_balance = float(math_text.cget("text"))
+    deposit_amount = float(math_text.cget("text"))
     new_balance = current_balance + deposit_amount
-    balance_label.config(text=new_balance)
-    amount_label.config(text="")
+    math_text.config(text=new_balance)
+    math_text.config(text="")
 
 def key_pressed(event):
     key = event.char
@@ -45,28 +45,17 @@ def clear_button(event):
     if clear.onclick():
         update_amount(clear)
     
+def add():
+    math_text["text"] = math_text["text"] + "+"
 
-def add(num1, num2):
-    result = num1 + num2
-    return result
+def subtract():
+    math_text["text"] = math_text["text"] + "-"
 
-def subtract(num1, num2):
-    result = num1 - num2
-    return result
+def multiply():
+    math_text["text"] = math_text["text"] + "×"
 
-def multiply(num1, num2):
-    result = num1*num2
-    return result
-
-def divide(num1, num2):
-    result = num1 / num2
-    return result
-
-balance_label = tk.Label(window, text="1000", font=("Arial", 16))
-balance_label.pack()
-
-amount_label = tk.Label(window, text="", font=("Arial", 14))
-amount_label.pack()
+def divide():
+    math_text["text"] = math_text["text"] + "÷"
 
 button_frame = tk.Frame()
 button_frame.pack()
@@ -89,7 +78,7 @@ add_button.grid(row = 0, column = 3, sticky = "nsew")
 subtract_button = tk.Button(button_frame, text = "-", width = 5, height = 2, command = subtract)
 subtract_button.grid(row = 1, column = 3, sticky = "nsew")
 
-multiply_button = tk.Button(button_frame, text = "x", width = 5, height = 2, command = multiply)
+multiply_button = tk.Button(button_frame, text = "×", width = 5, height = 2, command = multiply)
 multiply_button.grid(row = 2, column = 3, sticky = "nsew")
 
 divide_button = tk.Button(button_frame, text = "÷", width = 5, height = 2, command = divide)
