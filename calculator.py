@@ -23,12 +23,13 @@ def clear_history():
     math_text.config(text=new_balance)
     math_text.config(text="")
 
+history = []
+
 def enter_amount():
-    current_balance = float(math_text.cget("text"))
-    deposit_amount = float(math_text.cget("text"))
-    new_balance = current_balance + deposit_amount
-    math_text.config(text=new_balance)
-    math_text.config(text="")
+    operation = math_text.cget("text")
+    answer = eval(operation)
+    # history.append(operation + "=" + answer)
+    math_text.config(text = answer)
 
 def key_pressed(event):
     key = event.char
@@ -43,15 +44,16 @@ def key_pressed(event):
     elif key == "/":
         math_text["text"] = math_text["text"] + "÷"
 
-def enter_button(event):
-    enter = event.char
-    if enter.onclick():
-        update_amount(enter)
+# def enter_button(event):
+#     enter = event.char
+#     if enter.onclick():
+#         update_amount(enter)
     
-def clear_button(event):
-    clear = event.char
-    if clear.onclick():
-        update_amount(clear)
+def clear():
+    math_text.config(text = "")
+    # clear = event.char
+    # if clear.onclick():
+    #     update_amount(clear)
     
 def add():
     math_text["text"] = math_text["text"] + "+"
@@ -77,7 +79,7 @@ for i in range(10):
 enter = tk.Button(button_frame, text="Enter", width=5, height=2, command=enter_amount)
 enter.grid(row=3, column=1, sticky = "nsew")
 
-clear = tk.Button(button_frame, text="Clear", width=5, height=2, command=clear_history)
+clear = tk.Button(button_frame, text="Clear", width=5, height=2, command=clear)
 clear.grid(row=3, column=2, sticky = "nsew")
 
 add_button = tk.Button(button_frame, text = "+", width = 5, height = 2, command = add)
@@ -104,6 +106,6 @@ def dark_mode():
 
 window.bind("<Key>", key_pressed)
 
-window.bind("<Return>", enter_button)
+window.bind("<Return>", enter_amount)
 
 window.mainloop()
