@@ -28,7 +28,8 @@ history = []
 def enter_amount():
     operation = math_text.cget("text")
     answer = eval(operation)
-    # history.append(operation + "=" + answer)
+    history.append(operation)
+    history.append(answer)
     math_text.config(text = answer)
 
 def key_pressed(event):
@@ -44,10 +45,10 @@ def key_pressed(event):
     elif key == "/":
         math_text["text"] = math_text["text"] + "÷"
 
-# def enter_button(event):
-#     enter = event.char
-#     if enter.onclick():
-#         update_amount(enter)
+def enter_button(event):
+    enter = event.char
+    if enter.onclick():
+        update_amount(enter)
     
 def clear():
     math_text.config(text = "")
