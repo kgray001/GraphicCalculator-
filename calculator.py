@@ -9,12 +9,18 @@ window.minsize(300,400)
 math_text = tk.Label(master = window, text = "", height = 5, width = 33)
 math_text.pack()
 
+Result = False
+
 def update_amount(number):
-    current_amount = math_text.cget("text")
-    if current_amount == "0":
-        math_text.config(text=number)
-    else:
-        math_text.config(text=current_amount + number)
+    if Result == False:
+        current_amount = math_text.cget("text")
+        if current_amount == "0":
+            math_text.config(text=number)
+        else:
+            math_text.config(text=str(current_amount) + number)
+    if Result == True:
+        math_text["text"] = ""
+        math_text["text"] = math_text["text"] + number
 
 def clear_history():
     current_balance = float(math_text.cget("text"))
@@ -31,6 +37,7 @@ def enter_amount():
     history.append(operation)
     history.append(answer)
     math_text.config(text = answer)
+    Result == True
 
 def key_pressed(event):
     key = event.char
@@ -57,16 +64,20 @@ def clear():
     #     update_amount(clear)
     
 def add():
-    math_text["text"] = math_text["text"] + "+"
+    math_text["text"] = str(math_text["text"]) + "+"
+    Result == False
 
 def subtract():
-    math_text["text"] = math_text["text"] + "-"
+    math_text["text"] = str(math_text["text"]) + "-"
+    Result == False
 
 def multiply():
-    math_text["text"] = math_text["text"] + "*"
+    math_text["text"] = str(math_text["text"]) + "*"
+    Result == False
 
 def divide():
-    math_text["text"] = math_text["text"] + "÷"
+    math_text["text"] = str(math_text["text"]) + "÷"
+    Result == False
 
 button_frame = tk.Frame()
 button_frame.pack()
