@@ -41,7 +41,7 @@ def key_pressed(event):
     elif key == "-":
         math_text["text"] = math_text["text"] + "-"
     elif key == "*":
-        math_text["text"] = math_text["text"] + "×"
+        math_text["text"] = math_text["text"] + "*"
     elif key == "/":
         math_text["text"] = math_text["text"] + "÷"
 
@@ -63,7 +63,7 @@ def subtract():
     math_text["text"] = math_text["text"] + "-"
 
 def multiply():
-    math_text["text"] = math_text["text"] + "×"
+    math_text["text"] = math_text["text"] + "*"
 
 def divide():
     math_text["text"] = math_text["text"] + "÷"
@@ -89,7 +89,7 @@ add_button.grid(row = 0, column = 3, sticky = "nsew")
 subtract_button = tk.Button(button_frame, text = "-", width = 5, height = 2, command = subtract)
 subtract_button.grid(row = 1, column = 3, sticky = "nsew")
 
-multiply_button = tk.Button(button_frame, text = "×", width = 5, height = 2, command = multiply)
+multiply_button = tk.Button(button_frame, text = "*", width = 5, height = 2, command = multiply)
 multiply_button.grid(row = 2, column = 3, sticky = "nsew")
 
 divide_button = tk.Button(button_frame, text = "÷", width = 5, height = 2, command = divide)
