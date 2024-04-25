@@ -19,8 +19,7 @@ def update_amount(number):
         else:
             math_text.config(text=str(current_amount) + number)
     if Result == True:
-        math_text["text"] = ""
-        math_text["text"] = math_text["text"] + number
+        math_text["text"] = number
 
 def clear_history():
     current_balance = float(math_text.cget("text"))
@@ -52,13 +51,13 @@ def key_pressed(event):
     if key.isdigit():
         update_amount(key)
     elif key == "+": 
-        math_text["text"] = math_text["text"] + "+"
+        math_text["text"] = str(math_text["text"]) + "+"
     elif key == "-":
-        math_text["text"] = math_text["text"] + "-"
+        math_text["text"] = str(math_text["text"]) + "-"
     elif key == "*":
-        math_text["text"] = math_text["text"] + "*"
+        math_text["text"] = str(math_text["text"]) + "*"
     elif key == "/":
-        math_text["text"] = math_text["text"] + "÷"
+        math_text["text"] = str(math_text["text"]) + "÷"
 
 def enter_button(event):
     enter = event.char
