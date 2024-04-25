@@ -19,8 +19,7 @@ def update_amount(number):
         else:
             math_text.config(text=str(current_amount) + number)
     if Result == True:
-        math_text["text"] = ""
-        math_text["text"] = math_text["text"] + number
+        math_text["text"] = number
 
 def clear_history():
     current_balance = float(math_text.cget("text"))
@@ -39,18 +38,26 @@ def enter_amount():
     math_text.config(text = answer)
     Result == True
 
+def enter_key(event):
+    operation = math_text.cget("text")
+    answer = eval(operation)
+    history.append(operation)
+    history.append(answer)
+    math_text.config(text = answer)
+    Result == True
+
 def key_pressed(event):
     key = event.char
     if key.isdigit():
         update_amount(key)
     elif key == "+": 
-        math_text["text"] = math_text["text"] + "+"
+        math_text["text"] = str(math_text["text"]) + "+"
     elif key == "-":
-        math_text["text"] = math_text["text"] + "-"
+        math_text["text"] = str(math_text["text"]) + "-"
     elif key == "*":
-        math_text["text"] = math_text["text"] + "*"
+        math_text["text"] = str(math_text["text"]) + "*"
     elif key == "/":
-        math_text["text"] = math_text["text"] + "÷"
+        math_text["text"] = str(math_text["text"]) + "÷"
 
 def enter_button(event):
     enter = event.char
@@ -118,7 +125,7 @@ def dark_mode():
 
 window.bind("<Key>", key_pressed)
 
-window.bind("<Return>", enter_amount)
+window.bind("<Return>", enter_key)
 
 window.bind("<BackSpace>", clear_history)
 
