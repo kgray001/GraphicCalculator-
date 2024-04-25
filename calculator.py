@@ -121,6 +121,12 @@ window.bind("<BackSpace>", clear_history)
 
 window.mainloop()
 
+window.bind("<Key>", key_pressed)
+
+window.bind("<Return>", enter_key)
+
+window.bind("<BackSpace>", clear_history)
+
 def light_mode():
     window.configure(background = "white")
     math_text["bg"] = "white"
@@ -131,11 +137,6 @@ def dark_mode():
     math_text["bg"] = "black"
     math_text["fg"] = "white"
 
-window.bind("<Key>", key_pressed)
-
-window.bind("<Return>", enter_key)
-
-window.bind("<BackSpace>", clear_history)
 
 theme_button = tk.Button(button_frame, text = "Color Theme", width = 5, height = 2)
 theme_button.grid(row = 4, columnspan = 2, column = 2, sticky = "snew")
