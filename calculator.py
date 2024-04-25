@@ -132,7 +132,7 @@ def dark_mode():
 def change_theme():
     window = tk.Tk()
     window.title("Change Theme")
-    window.minsize(400,50)
+    window.minsize(400, 50)
     lightmode_button = tk.Button(button_frame, text = "Light Mode", width = 5, height = 2, command = light_mode)
     lightmode_button.grid(row = 1, column = 1, sticky = "nsew")
     darkmode_button = tk.Button(button_frame, text = "Dark Mode", width = 5, height = 2, command = dark_mode)
@@ -141,7 +141,12 @@ def change_theme():
 theme_button = tk.Button(button_frame, text = "Color Theme", width = 5, height = 2, command = change_theme)
 theme_button.grid(row = 4, columnspan = 2, column = 2, sticky = "nsew")
 
-history_button = tk.Button(button_frame, text = "History", width = 5, height = 2)
+def record_history():
+    window = tk.Tk()
+    window.title("History")
+    window.minsize(400, 150)
+
+history_button = tk.Button(button_frame, text = "History", width = 5, height = 2, command = record_history)
 history_button.grid(row = 4, columnspan = 2, sticky = "nsew")
 
 window.mainloop()
