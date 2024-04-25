@@ -39,6 +39,14 @@ def enter_amount():
     math_text.config(text = answer)
     Result == True
 
+def enter_key(event):
+    operation = math_text.cget("text")
+    answer = eval(operation)
+    history.append(operation)
+    history.append(answer)
+    math_text.config(text = answer)
+    Result == True
+
 def key_pressed(event):
     key = event.char
     if key.isdigit():
@@ -118,6 +126,6 @@ def dark_mode():
 
 window.bind("<Key>", key_pressed)
 
-window.bind("<Return>", enter_amount)
+window.bind("<Return>", enter_key)
 
 window.mainloop()
