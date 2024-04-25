@@ -48,17 +48,15 @@ def enter_key(event):
 
 def key_pressed(event):
     key = event.char
-    if Result == True:
-        if key.isdigit():
-            update_amount(key)
-    else:
-        if key == "+": 
-            math_text["text"] = str(math_text["text"]) + "+"
-        elif key == "-":
-            math_text["text"] = str(math_text["text"]) + "-"
-        elif key == "*":
-            math_text["text"] = str(math_text["text"]) + "*"
-        elif key == "/":
+    if key.isdigit():
+        update_amount(key)
+    elif key == "+": 
+        math_text["text"] = str(math_text["text"]) + "+"
+    elif key == "-":
+        math_text["text"] = str(math_text["text"]) + "-"
+    elif key == "*":
+        math_text["text"] = str(math_text["text"]) + "*"
+    elif key == "/":
             math_text["text"] = str(math_text["text"]) + "÷"
 
 def enter_button(event):
