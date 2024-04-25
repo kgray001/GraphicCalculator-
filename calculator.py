@@ -119,12 +119,6 @@ window.bind("<Return>", enter_key)
 
 window.bind("<BackSpace>", clear_history)
 
-window.bind("<Key>", key_pressed)
-
-window.bind("<Return>", enter_key)
-
-window.bind("<BackSpace>", clear_history)
-
 def light_mode():
     window.configure(background = "white")
     math_text["bg"] = "white"
@@ -135,13 +129,19 @@ def dark_mode():
     math_text["bg"] = "black"
     math_text["fg"] = "white"
 
-def 
+def change_theme():
+    window = tk.Tk()
+    window.title("Change Theme")
+    window.minsize(400,50)
+    lightmode_button = tk.Button(button_frame, text = "Light Mode", width = 5, height = 2, command = light_mode)
+    lightmode_button.grid(row = 1, column = 1, sticky = "nsew")
+    darkmode_button = tk.Button(button_frame, text = "Dark Mode", width = 5, height = 2, command = dark_mode)
+    darkmode_button.grid(row = 1, column = 2, sticky = "nsew")
 
-theme_button = tk.Button(button_frame, text = "Color Theme", width = 5, height = 2, command = )
-theme_button.grid(row = 4, columnspan = 2, column = 2, sticky = "snew")
+theme_button = tk.Button(button_frame, text = "Color Theme", width = 5, height = 2, command = change_theme)
+theme_button.grid(row = 4, columnspan = 2, column = 2, sticky = "nsew")
 
 history_button = tk.Button(button_frame, text = "History", width = 5, height = 2)
-history_button.grid(row = 4, columnspan = 2, sticky = "snew")
-
+history_button.grid(row = 4, columnspan = 2, sticky = "nsew")
 
 window.mainloop()
