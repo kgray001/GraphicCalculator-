@@ -130,7 +130,6 @@ def dark_mode():
     window.configure(background = "black")
     math_text["bg"] = "black"
     math_text["fg"] = "white"
-<<<<<<< HEAD
 
 window.bind("<Key>", key_pressed)
 
@@ -145,5 +144,3 @@ history_button = tk.Button(button_frame, text = "History", width = 5, height = 2
 history_button.grid(row = 4, columnspan = 2, sticky = "snew")
 
 window.mainloop()
-=======
->>>>>>> d05832f70ba1a0f83cb7d977d6427a08612b73e8
