@@ -113,6 +113,14 @@ multiply_button.grid(row = 2, column = 3, sticky = "nsew")
 divide_button = tk.Button(button_frame, text = "÷", width = 5, height = 2, command = divide)
 divide_button.grid(row = 3, column = 3, sticky = "nsew")
 
+window.bind("<Key>", key_pressed)
+
+window.bind("<Return>", enter_key)
+
+window.bind("<BackSpace>", clear_history)
+
+window.mainloop()
+
 def light_mode():
     window.configure(background = "white")
     math_text["bg"] = "white"
@@ -122,6 +130,7 @@ def dark_mode():
     window.configure(background = "black")
     math_text["bg"] = "black"
     math_text["fg"] = "white"
+<<<<<<< HEAD
 
 window.bind("<Key>", key_pressed)
 
@@ -136,3 +145,5 @@ history_button = tk.Button(button_frame, text = "History", width = 5, height = 2
 history_button.grid(row = 4, columnspan = 2, sticky = "snew")
 
 window.mainloop()
+=======
+>>>>>>> d05832f70ba1a0f83cb7d977d6427a08612b73e8
