@@ -56,12 +56,12 @@ def enter_button(event):
     enter = event.char
     if enter.onclick():
         update_amount(enter)
-    
-def clear():
+
+def clear(event):
     math_text.config(text = "")
-    # clear = event.char
-    # if clear.onclick():
-    #     update_amount(clear)
+    clear = event.char
+    if clear.onclick():
+        update_amount(clear)
     
 def add():
     math_text["text"] = str(math_text["text"]) + "+"
@@ -119,5 +119,7 @@ def dark_mode():
 window.bind("<Key>", key_pressed)
 
 window.bind("<Return>", enter_amount)
+
+window.bind("<BackSpace>", clear_history)
 
 window.mainloop()
