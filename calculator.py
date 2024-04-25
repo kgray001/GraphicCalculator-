@@ -119,8 +119,6 @@ window.bind("<Return>", enter_key)
 
 window.bind("<BackSpace>", clear_history)
 
-window.mainloop()
-
 window.bind("<Key>", key_pressed)
 
 window.bind("<Return>", enter_key)
@@ -143,5 +141,6 @@ theme_button.grid(row = 4, columnspan = 2, column = 2, sticky = "snew")
 
 history_button = tk.Button(button_frame, text = "History", width = 5, height = 2)
 history_button.grid(row = 4, columnspan = 2, sticky = "snew")
+
 
 window.mainloop()
