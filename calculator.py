@@ -21,7 +21,7 @@ def update_amount(number):
     if Result == True:
         math_text["text"] = number
 
-def clear_history():
+def clear_history(event):
     current_balance = float(math_text.cget("text"))
     withdrawal_amount = float(math_text.cget("text"))
     new_balance = current_balance - withdrawal_amount
