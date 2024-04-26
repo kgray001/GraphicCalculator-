@@ -130,13 +130,15 @@ def dark_mode():
     math_text["fg"] = "white"
 
 def change_theme():
-    window = tk.Tk()
-    window.title("Change Theme")
-    window.minsize(400, 50)
-    lightmode_button = tk.Button(button_frame, text = "Light Mode", width = 5, height = 2, command = light_mode)
-    lightmode_button.grid(row = 1, column = 1, sticky = "nsew")
-    darkmode_button = tk.Button(button_frame, text = "Dark Mode", width = 5, height = 2, command = dark_mode)
-    darkmode_button.grid(row = 1, column = 2, sticky = "nsew")
+    theme_window = tk.Tk()
+    theme_window.title("Change Theme")
+    theme_window.minsize(400, 50)
+    theme_window.rowconfigure([0], minsize = 75)
+    theme_window.columnconfigure([0,1], minsize = 75)
+    lightmode_button = tk.Button(master = theme_window, text = "Light Mode", width = 5, height = 2, command = light_mode)
+    lightmode_button.grid(row = 0, column = 0, sticky = "nsew")
+    darkmode_button = tk.Button(master = theme_window, text = "Dark Mode", width = 5, height = 2, command = dark_mode)
+    darkmode_button.grid(row = 0, column = 1, sticky = "nsew")
 
 theme_button = tk.Button(button_frame, text = "Color Theme", width = 5, height = 2, command = change_theme)
 theme_button.grid(row = 4, columnspan = 2, column = 2, sticky = "nsew")
