@@ -4,7 +4,7 @@ window = tk.Tk()
 
 window.title("Calculator")
 
-window.minsize(300,400)
+window.minsize(260,385)
 
 math_text = tk.Label(master = window, text = "", height = 5, width = 33)
 math_text.pack()
@@ -80,7 +80,7 @@ def clear(event):
     if clear.onclick():
         update_amount(clear)
 
-def clear():
+def clear_btn():
     math_text.config(text = "")
     
 def add():
@@ -104,15 +104,18 @@ button_frame.pack()
 button_frame.rowconfigure([0,1,2,3], minsize = 60)
 button_frame.columnconfigure([0,1,2,3], minsize = 60)
 
+buttons = []
+
 for i in range(10):
     button = tk.Button(button_frame, text=str(i), width=5, height=2, command=lambda i=i: update_amount(str(i)))
     button.grid(row=i//3, column=i%3, sticky = "nsew")
+    buttons.append(button)
 
 enter = tk.Button(button_frame, text="Enter", width=5, height=2, command=enter_amount)
 enter.grid(row=3, column=1, sticky = "nsew")
 
-clear = tk.Button(button_frame, text="Clear", width=5, height=2, command=clear)
-clear.grid(row=3, column=2, sticky = "nsew")
+clear_button = tk.Button(button_frame, text="Clear", width=5, height=2, command=clear_btn)
+clear_button.grid(row=3, column=2, sticky = "nsew")
 
 add_button = tk.Button(button_frame, text = "+", width = 5, height = 2, command = add)
 add_button.grid(row = 0, column = 3, sticky = "nsew")
@@ -130,12 +133,31 @@ window.bind("<Key>", key_pressed)
 
 window.bind("<Return>", enter_key)
 
-window.bind("<BackSpace>", clear_history)
+window.bind("<BackSpace>", clear)
 
 def light_mode():
     window.configure(background = "white")
     math_text["bg"] = "white"
     math_text["fg"] = "black"
+    for button in buttons:
+        button["bg"] = "white"
+        button["fg"] = "black"
+    enter["bg"] = "white"
+    enter["fg"] = "black"
+    clear_button["bg"] = "white"
+    clear_button["fg"] = "black"
+    add_button["bg"] = "white"
+    add_button["fg"] = "black"
+    subtract_button["bg"] = "white"
+    subtract_button["fg"] = "black"
+    multiply_button["bg"] = "white"
+    multiply_button["fg"] = "black"
+    divide_button["bg"] = "white"
+    divide_button["fg"] = "black"
+    theme_button["bg"] = "white"
+    theme_button["fg"] = "black"
+    history_button["bg"] = "white"
+    history_button["fg"] = "black"
 
 def dark_mode():
     window.configure(background = "black")
@@ -160,8 +182,10 @@ def record_history():
     history_window = tk.Tk()
     history_window.title("History")
     history_window.minsize(400, 150)
+    history_label = tk.Label(master = history_window, text = "", height = 5, width = 33)
+    history_label.pack()
     for x in history_list:
-        x.print_history()
+        history_label["text"] = str(history_label["text" ]) + str(x.print_history())
 
 history_button = tk.Button(button_frame, text = "History", width = 5, height = 2, command = record_history)
 history_button.grid(row = 4, columnspan = 2, sticky = "nsew")
