@@ -28,6 +28,8 @@ def clear_history(event):
     math_text.config(text=new_balance)
     math_text.config(text="")
 
+history_list = []
+
 class History:
     def __init__(self, operation, result):
         self.operation = operation
@@ -37,22 +39,20 @@ class History:
         print(self.operation)
         print(self.result)
         print("")
-        
-history = []
 
 def enter_amount():
     operation = math_text.cget("text")
     answer = eval(operation)
-    history.append(operation)
-    history.append(answer)
+    h1 = History(operation, answer)
+    history_list.append(h1)
     math_text.config(text = answer)
     Result == True
 
 def enter_key(event):
     operation = math_text.cget("text")
     answer = eval(operation)
-    history.append(operation)
-    history.append(answer)
+    h1 = History(operation, answer)
+    history_list.append(h1)
     math_text.config(text = answer)
     Result == True
 
@@ -79,6 +79,9 @@ def clear(event):
     clear = event.char
     if clear.onclick():
         update_amount(clear)
+
+def clear():
+    math_text.config(text = "")
     
 def add():
     math_text["text"] = str(math_text["text"]) + "+"
@@ -157,6 +160,8 @@ def record_history():
     history_window = tk.Tk()
     history_window.title("History")
     history_window.minsize(400, 150)
+    for x in history_list:
+        x.print_history()
 
 history_button = tk.Button(button_frame, text = "History", width = 5, height = 2, command = record_history)
 history_button.grid(row = 4, columnspan = 2, sticky = "nsew")
