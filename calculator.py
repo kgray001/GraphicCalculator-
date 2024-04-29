@@ -201,8 +201,10 @@ def record_history():
     history_window = tk.Tk()
     history_window.title("History")
     history_window.minsize(400, 150)
+    history_label = tk.Label(master = history_window, text = "")
+    history_label.pack()
     for x in history_list:
-        x.print_history()
+        history_label["text"] = x.print_history()
 
 history_button = tk.Button(button_frame, text = "History", width = 5, height = 2, command = record_history)
 history_button.grid(row = 4, columnspan = 2, sticky = "nsew")
