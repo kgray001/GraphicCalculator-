@@ -163,25 +163,6 @@ def dark_mode():
     window.configure(background = "black")
     math_text["bg"] = "black"
     math_text["fg"] = "white"
-    for button in buttons:
-        button["bg"] = "black"
-        button["fg"] = "white"
-    enter["bg"] = "black"
-    enter["fg"] = "white"
-    clear_button["bg"] = "black"
-    clear_button["fg"] = "white"
-    add_button["bg"] = "black"
-    add_button["fg"] = "white"
-    subtract_button["bg"] = "black"
-    subtract_button["fg"] = "white"
-    multiply_button["bg"] = "black"
-    multiply_button["fg"] = "white"
-    divide_button["bg"] = "black"
-    divide_button["fg"] = "white"
-    theme_button["bg"] = "black"
-    theme_button["fg"] = "white"
-    history_button["bg"] = "black"
-    history_button["fg"] = "white"
 
 def change_theme():
     theme_window = tk.Tk()
@@ -208,5 +189,15 @@ def record_history():
 
 history_button = tk.Button(button_frame, text = "History", width = 5, height = 2, command = record_history)
 history_button.grid(row = 4, columnspan = 2, sticky = "nsew")
+
+class Application ():
+
+    def __init__ (self):
+       window.bind("<Delete>", self.quit)
+
+    def quit (self,n):
+       window.destroy()
+
+calculator = Application()
 
 window.mainloop()
