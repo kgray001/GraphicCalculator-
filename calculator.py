@@ -201,6 +201,10 @@ def record_history():
     history_window = tk.Tk()
     history_window.title("History")
     history_window.minsize(400, 150)
+    # frame1 = tk.Frame(master = history_window)
+    # frame1.pack()
+    # frame2 = tk.Frame(master = history_window)
+    # frame2.pack()
     history_label = tk.Label(master = history_window, text = "")
     history_label.pack()
     for x in history_list:
