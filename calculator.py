@@ -28,6 +28,16 @@ def clear_history(event):
     math_text.config(text=new_balance)
     math_text.config(text="")
 
+class History:
+    def __init__(self, operation, result):
+        self.operation = operation
+        self.result = result
+    
+    def print_history(self):
+        print(self.operation)
+        print(self.result)
+        print("")
+        
 history = []
 
 def enter_amount():
