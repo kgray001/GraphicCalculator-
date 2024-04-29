@@ -4,7 +4,7 @@ window = tk.Tk()
 
 window.title("Calculator")
 
-window.minsize(300,400)
+window.minsize(260,385)
 
 math_text = tk.Label(master = window, text = "", height = 5, width = 33)
 math_text.pack()
