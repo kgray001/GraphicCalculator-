@@ -67,7 +67,7 @@ def key_pressed(event):
     elif key == "*":
         math_text["text"] = str(math_text["text"]) + "*"
     elif key == "/":
-            math_text["text"] = str(math_text["text"]) + "÷"
+            math_text["text"] = str(math_text["text"]) + "/"
 
 def enter_button(event):
     enter = event.char
@@ -96,7 +96,7 @@ def multiply():
     Result == False
 
 def divide():
-    math_text["text"] = str(math_text["text"]) + "÷"
+    math_text["text"] = str(math_text["text"]) + "/"
     Result == False
 
 button_frame = tk.Frame()
