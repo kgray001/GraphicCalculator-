@@ -142,22 +142,47 @@ def light_mode():
     for button in buttons:
         button["bg"] = "white"
         button["fg"] = "black"
+    enter["bg"] = "white"
+    enter["fg"] = "black"
+    clear_button["bg"] = "white"
+    clear_button["fg"] = "black"
+    add_button["bg"] = "white"
+    add_button["fg"] = "black"
+    subtract_button["bg"] = "white"
+    subtract_button["fg"] = "black"
+    multiply_button["bg"] = "white"
+    multiply_button["fg"] = "black"
+    divide_button["bg"] = "white"
+    divide_button["fg"] = "black"
+    theme_button["bg"] = "white"
+    theme_button["fg"] = "black"
+    history_button["bg"] = "white"
+    history_button["fg"] = "black"
 
 def dark_mode():
     window.configure(background = "black")
     math_text["bg"] = "black"
     math_text["fg"] = "white"
-<<<<<<< HEAD
     for button in buttons:
         button["bg"] = "black"
         button["fg"] = "white"
     enter["bg"] = "black"
     enter["fg"] = "white"
+    clear_button["bg"] = "black"
+    clear_button["fg"] = "white"
+    add_button["bg"] = "black"
+    add_button["fg"] = "white"
+    subtract_button["bg"] = "black"
+    subtract_button["fg"] = "white"
+    multiply_button["bg"] = "black"
+    multiply_button["fg"] = "white"
+    divide_button["bg"] = "black"
+    divide_button["fg"] = "white"
+    theme_button["bg"] = "black"
+    theme_button["fg"] = "white"
+    history_button["bg"] = "black"
+    history_button["fg"] = "white"
 
-
-=======
-    
->>>>>>> 27f298ad0b8e5f9526c84bade01530b0f294dae8
 def change_theme():
     theme_window = tk.Tk()
     theme_window.title("Change Theme")
