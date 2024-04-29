@@ -141,7 +141,7 @@ def dark_mode():
     window.configure(background = "black")
     math_text["bg"] = "black"
     math_text["fg"] = "white"
-    
+
 def change_theme():
     theme_window = tk.Tk()
     theme_window.title("Change Theme")
@@ -165,5 +165,15 @@ def record_history():
 
 history_button = tk.Button(button_frame, text = "History", width = 5, height = 2, command = record_history)
 history_button.grid(row = 4, columnspan = 2, sticky = "nsew")
+
+class Application ():
+
+    def __init__ (self):
+       window.bind("<Delete>", self.quit)
+
+    def quit (self,n):
+       window.destroy()
+
+calculator = Application()
 
 window.mainloop()
