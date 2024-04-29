@@ -201,7 +201,7 @@ def record_history():
     history_window = tk.Tk()
     history_window.title("History")
     history_window.minsize(400, 150)
-    history_label = tk.Label(master = history_window, text = "", height = 5, width = 33)
+    history_label = tk.Label(master = history_window, text = "")
     history_label.pack()
     for x in history_list:
         history_label["text"] = str(history_label["text" ]) + str(x.print_history())
