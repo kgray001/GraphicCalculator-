@@ -147,6 +147,7 @@ def dark_mode():
     window.configure(background = "black")
     math_text["bg"] = "black"
     math_text["fg"] = "white"
+<<<<<<< HEAD
     for button in buttons:
         button["bg"] = "black"
         button["fg"] = "white"
@@ -154,6 +155,9 @@ def dark_mode():
     enter["fg"] = "white"
 
 
+=======
+    
+>>>>>>> 27f298ad0b8e5f9526c84bade01530b0f294dae8
 def change_theme():
     theme_window = tk.Tk()
     theme_window.title("Change Theme")
