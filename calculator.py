@@ -80,7 +80,7 @@ def clear(event):
     if clear.onclick():
         update_amount(clear)
 
-def clear():
+def clear_btn():
     math_text.config(text = "")
     
 def add():
@@ -104,15 +104,18 @@ button_frame.pack()
 button_frame.rowconfigure([0,1,2,3], minsize = 60)
 button_frame.columnconfigure([0,1,2,3], minsize = 60)
 
+buttons = []
+
 for i in range(10):
     button = tk.Button(button_frame, text=str(i), width=5, height=2, command=lambda i=i: update_amount(str(i)))
     button.grid(row=i//3, column=i%3, sticky = "nsew")
+    buttons.append(button)
 
 enter = tk.Button(button_frame, text="Enter", width=5, height=2, command=enter_amount)
 enter.grid(row=3, column=1, sticky = "nsew")
 
-clear = tk.Button(button_frame, text="Clear", width=5, height=2, command=clear)
-clear.grid(row=3, column=2, sticky = "nsew")
+clear_button = tk.Button(button_frame, text="Clear", width=5, height=2, command=clear_btn)
+clear_button.grid(row=3, column=2, sticky = "nsew")
 
 add_button = tk.Button(button_frame, text = "+", width = 5, height = 2, command = add)
 add_button.grid(row = 0, column = 3, sticky = "nsew")
@@ -130,17 +133,26 @@ window.bind("<Key>", key_pressed)
 
 window.bind("<Return>", enter_key)
 
-window.bind("<BackSpace>", clear_history)
+window.bind("<BackSpace>", clear)
 
 def light_mode():
     window.configure(background = "white")
     math_text["bg"] = "white"
     math_text["fg"] = "black"
+    for button in buttons:
+        button["bg"] = "white"
+        button["fg"] = "black"
 
 def dark_mode():
     window.configure(background = "black")
     math_text["bg"] = "black"
     math_text["fg"] = "white"
+    for button in buttons:
+        button["bg"] = "black"
+        button["fg"] = "white"
+    enter["bg"] = "black"
+    enter["fg"] = "white"
+
 
 def change_theme():
     theme_window = tk.Tk()
