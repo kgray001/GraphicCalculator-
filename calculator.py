@@ -141,7 +141,7 @@ def dark_mode():
     window.configure(background = "black")
     math_text["bg"] = "black"
     math_text["fg"] = "white"
-
+    
 def change_theme():
     theme_window = tk.Tk()
     theme_window.title("Change Theme")
