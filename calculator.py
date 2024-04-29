@@ -144,9 +144,9 @@ theme_button = tk.Button(button_frame, text = "Color Theme", width = 5, height =
 theme_button.grid(row = 4, columnspan = 2, column = 2, sticky = "nsew")
 
 def record_history():
-    window = tk.Tk()
-    window.title("History")
-    window.minsize(400, 150)
+    history_window = tk.Tk()
+    history_window.title("History")
+    history_window.minsize(400, 150)
 
 history_button = tk.Button(button_frame, text = "History", width = 5, height = 2, command = record_history)
 history_button.grid(row = 4, columnspan = 2, sticky = "nsew")
