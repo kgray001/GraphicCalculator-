@@ -218,8 +218,8 @@ def record_history():
     history_window.maxsize(400,150)
     history_label = tk.Label(master = history_window, text = "")
     history_label.pack(side = tk.LEFT)
-    # s = tk.Scrollbar(master = history_window, bg = "black", bd = 5)
-    # s.pack(side = tk.RIGHT, fill = tk.Y)
+    s = tk.Scrollbar(master = history_window, bg = "black", bd = 5)
+    s.pack(side = tk.RIGHT, fill = tk.Y)
     for x in history_list:
         history_label["text"] = str(history_label["text" ]) + str(x.print_history())
 
