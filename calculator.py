@@ -37,11 +37,8 @@ class History:
         self.result = result
     
     def print_history(self):
-        a = self.operation
-        b = self.result
-        c = ""
-        str = f"{a}\n {b}\n\n"
-        return str
+        tuple = (self.operation, self.result)
+        return f"{tuple[0]}\n {tuple[1]}\n\n"
 
 def enter_amount():
     global Result
