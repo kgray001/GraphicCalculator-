@@ -186,7 +186,7 @@ def dark_mode():
 def change_theme():
     theme_window = tk.Tk()
     theme_window.title("Change Theme")
-    theme_window.minsize(400, 50)
+    theme_window.minsize(100, 50)
     theme_window.rowconfigure([0], minsize = 75)
     theme_window.columnconfigure([0,1], minsize = 75)
     lightmode_button = tk.Button(master = theme_window, text = "Light Mode", width = 5, height = 2, command = light_mode)
