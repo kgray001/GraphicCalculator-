@@ -12,6 +12,7 @@ math_text.pack()
 Result = False
 
 def update_amount(number):
+    global Result
     if Result == False:
         current_amount = math_text.cget("text")
         if current_amount == "0":
@@ -36,40 +37,50 @@ class History:
         self.result = result
     
     def print_history(self):
-        a = print(self.operation)
-        b = print(self.result)
-        c = print("")
-        str = f"{a}/n {b}/n {c}"
+        a = self.operation
+        b = self.result
+        c = ""
+        str = f"{a}\n {b}\n\n"
         return str
 
 def enter_amount():
+    global Result
     operation = math_text.cget("text")
     answer = eval(operation)
     h1 = History(operation, answer)
     history_list.append(h1)
     math_text.config(text = answer)
-    Result == True
+    Result = True
 
 def enter_key(event):
+    global Result
     operation = math_text.cget("text")
     answer = eval(operation)
     h1 = History(operation, answer)
     history_list.append(h1)
     math_text.config(text = answer)
-    Result == True
+    Result = True
 
 def key_pressed(event):
+    global Result
     key = event.char
     if key.isdigit():
+        if Result == True:
+            math_text["text"] = ""
         update_amount(key)
+        Result = False
     elif key == "+": 
         math_text["text"] = str(math_text["text"]) + "+"
+        Result = False
     elif key == "-":
         math_text["text"] = str(math_text["text"]) + "-"
+        Result = False
     elif key == "*":
         math_text["text"] = str(math_text["text"]) + "*"
+        Result = False
     elif key == "/":
             math_text["text"] = str(math_text["text"]) + "/"
+            Result = False
 
 def enter_button(event):
     enter = event.char
@@ -87,19 +98,23 @@ def clear_btn():
     
 def add():
     math_text["text"] = str(math_text["text"]) + "+"
-    Result == False
+    global Result
+    Result = False
 
 def subtract():
+    global Result
     math_text["text"] = str(math_text["text"]) + "-"
-    Result == False
+    Result = False
 
 def multiply():
+    global Result
     math_text["text"] = str(math_text["text"]) + "*"
-    Result == False
+    Result = False
 
 def divide():
+    global Result
     math_text["text"] = str(math_text["text"]) + "/"
-    Result == False
+    Result = False
 
 button_frame = tk.Frame()
 button_frame.pack()
@@ -200,22 +215,21 @@ theme_button = tk.Button(button_frame, text = "Color Theme", width = 5, height =
 theme_button.grid(row = 4, columnspan = 2, column = 2, sticky = "nsew")
 
 def record_history():
-    history_window = tk.Tk()
+    history_window = tk.Tk() 
     history_window.title("History")
     history_window.minsize(400, 150)
-    # frame1 = tk.Frame(master = history_window)
-    # frame1.pack()
-    # frame2 = tk.Frame(master = history_window)
-    # frame2.pack()
+    history_window.maxsize(400,150)
     history_label = tk.Label(master = history_window, text = "")
-    history_label.pack()
+    history_label.pack(side = tk.LEFT)
+    # s = tk.Scrollbar(master = history_window, bg = "black", bd = 5)
+    # s.pack(side = tk.RIGHT, fill = tk.Y)
     for x in history_list:
         history_label["text"] = str(history_label["text" ]) + str(x.print_history())
 
 history_button = tk.Button(button_frame, text = "History", width = 5, height = 2, command = record_history)
 history_button.grid(row = 4, columnspan = 2, sticky = "nsew")
 
-class Application ():
+class Application ():     
 
     def __init__ (self):
        window.bind("<Delete>", self.quit)
