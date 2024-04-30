@@ -13,14 +13,13 @@ Result = False
 
 def update_amount(number):
     global Result
-    if Result == False:
-        current_amount = math_text.cget("text")
-        if current_amount == "0":
-            math_text.config(text=number)
-        else:
-            math_text.config(text=str(current_amount) + number)
     if Result == True:
-        math_text["text"] = number
+        math_text["text"] = ""
+        math_text["text"] = math_text["text"] + number
+        Result = False
+    if Result == False:
+        math_text["text"] = math_text["text"] + number
+        Result = False
 
 def clear_history(event):
     current_balance = float(math_text.cget("text"))
