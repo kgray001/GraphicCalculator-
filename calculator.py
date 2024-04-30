@@ -76,8 +76,14 @@ def key_pressed(event):
         math_text["text"] = str(math_text["text"]) + "*"
         Result = False
     elif key == "/":
-            math_text["text"] = str(math_text["text"]) + "/"
-            Result = False
+        math_text["text"] = str(math_text["text"]) + "/"
+        Result = False
+    elif key == "(":
+        math_text["text"] = str(math_text["text"]) + "("
+        Result = False
+    elif key == ")":
+        math_text["text"] = str(math_text["text"]) + ")"
+        Result = False
 
 def enter_button(event):
     enter = event.char
@@ -112,6 +118,7 @@ def divide():
     global Result
     math_text["text"] = str(math_text["text"]) + "/"
     Result = False
+
 
 button_frame = tk.Frame()
 button_frame.pack()
@@ -148,6 +155,10 @@ window.bind("<Key>", key_pressed)
 window.bind("<Return>", enter_key)
 
 window.bind("<BackSpace>", clear)
+
+window.bind("<(>", key_pressed)
+
+window.bind("<)>", key_pressed)
 
 def light_mode():
     window.configure(background = "white")
