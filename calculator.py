@@ -119,7 +119,6 @@ def divide():
     math_text["text"] = str(math_text["text"]) + "/"
     Result = False
 
-
 button_frame = tk.Frame()
 button_frame.pack()
 button_frame.rowconfigure([0,1,2,3], minsize = 60)
