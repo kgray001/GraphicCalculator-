@@ -36,9 +36,11 @@ class History:
         self.result = result
     
     def print_history(self):
-        print(self.operation)
-        print(self.result)
-        print("")
+        a = print(self.operation)
+        b = print(self.result)
+        c = print("")
+        str = f"{a}/n {b}/n {c}"
+        return str
 
 def enter_amount():
     operation = math_text.cget("text")
