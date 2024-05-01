@@ -17,9 +17,8 @@ def update_amount(number):
         math_text["text"] = ""
         math_text["text"] = math_text["text"] + number
         Result = False
-    if Result == False:
+    elif Result == False:
         math_text["text"] = math_text["text"] + number
-        Result = False
 
 def clear_history(event):
     current_balance = float(math_text.cget("text"))
