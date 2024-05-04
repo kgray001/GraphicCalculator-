@@ -225,7 +225,7 @@ def record_history():
     history_window.minsize(400, 150)
     history_window.maxsize(400,150)
     # https://www.youtube.com/watch?v=0WafQCaok6g
-    outer_frame = tk.Frame(master = history_window, width = 400, height = 150)
+    outer_frame = tk.Frame(master = history_window)
     outer_frame.pack(fill = tk.BOTH, expand = 1)
     history_canvas = tk.Canvas(master = outer_frame)
     history_canvas.pack(side = tk.LEFT, fill = tk.BOTH, expand = 1)
