@@ -129,7 +129,7 @@ for i in range(10):
     button.grid(row=i//3, column=i%3, sticky = "nsew")
     buttons.append(button)
 
-enter = tk.Button(button_frame, text="Enter", width=5, height=2, command=enter_amount)
+enter = tk.Button(button_frame, text="=", width=5, height=2, command=enter_amount)
 enter.grid(row=3, column=1, sticky = "nsew")
 
 clear_button = tk.Button(button_frame, text="Clear", width=5, height=2, command=clear_btn)
